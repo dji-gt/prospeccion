@@ -14,14 +14,14 @@
   <meta property="og:image:height" content="630">
   <meta property="og:url" content="https://dji-gt.github.io/prospeccion/">
   <meta name="twitter:card" content="summary_large_image">
-  <link rel="icon" href="assets/img/favicon.svg?v=20261029" type="image/svg+xml">
+  <link rel="icon" href="assets/img/favicon.svg?v=20261029b" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@1&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
-  <link rel="stylesheet" href="styles.css?v=20261029">
+  <link rel="stylesheet" href="styles.css?v=20261029b">
   <script>document.documentElement.classList.add("js");</script>
-  <script defer src="lib/manifest.js?v=20261029"></script>
-  <script defer src="main.js?v=20261029"></script>
+  <script defer src="lib/manifest.js?v=20261029b"></script>
+  <script defer src="main.js?v=20261029b"></script>
 </head>
 <body>
   <div class="mesh" aria-hidden="true"><span></span><span></span><span></span></div>
@@ -36,7 +36,7 @@
       <nav class="nav-links" aria-label="Secciones" data-nav-links>
         <a href="#soluciones">Soluciones</a>
         <a href="#paquetes">Paquetes</a>
-        <a href="#calculadora">Costo por casa</a>
+        <a href="#calculadora" data-ed="Costo por apartamento">Costo por casa</a>
         <a href="#preguntas">Preguntas</a>
         <span class="nav-ink" aria-hidden="true"></span>
       </nav>
@@ -50,18 +50,19 @@
       <div class="wrap hero-grid">
         <div class="hero-copy">
           <p class="kicker"><span class="dot" aria-hidden="true"></span>Propuesta para <strong data-condo>su condominio</strong></p>
+          <p class="kicker-adm" data-solo-admin hidden>Atención: <strong data-admin></strong></p>
           <h1 class="hero-title"><span data-condo-h1>Su condominio</span><span class="coma">,</span> <em data-h1-em>visto desde arriba.</em></h1>
-          <p class="hero-sub">Revise techos y canales sin andamios, recorra el perímetro en minutos y muestre las áreas comunes como se ven de verdad. Equipo DJI, capacitación y protección contra accidentes en un solo paquete.</p>
+          <p class="hero-sub" data-ed="Revise azotea, tanques y fachada sin andamios ni descolgados, recorra el perímetro en minutos y muestre el edificio como se ve de verdad. Equipo DJI, capacitación y protección contra accidentes en un solo paquete.">Revise techos y canales sin andamios, recorra el perímetro en minutos y muestre las áreas comunes como se ven de verdad. Equipo DJI, capacitación y protección contra accidentes en un solo paquete.</p>
           <div class="hero-ctas">
             <a class="btn btn-dark" href="#paquetes" data-magnet>Ver paquetes
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
             </a>
-            <a class="btn btn-glass" href="#calculadora">¿Cuánto le toca a cada casa?</a>
+            <a class="btn btn-glass" href="#calculadora" data-ed="¿Cuánto le toca a cada apartamento?">¿Cuánto le toca a cada casa?</a>
           </div>
         </div>
 
         <div class="hero-visual">
-          <figure class="map glass" role="img" aria-label="Ilustración: vista aérea de un condominio con la ruta de ronda del dron y un techo marcado para revisión">
+          <figure class="map glass" role="img" aria-label="Ilustración: vista aérea de un condominio con la ruta de ronda del dron y un techo marcado para revisión" data-map>
             <svg class="map-svg" viewBox="0 0 560 420" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false">
               <defs>
                 <path id="ruta" d="M44 24H516Q536 24 536 44V376Q536 396 516 396H44Q24 396 24 376V44Q24 24 44 24Z"/>
@@ -158,9 +159,117 @@
                 <animateMotion dur="24s" repeatCount="indefinite" rotate="auto"><mpath href="#ruta" xlink:href="#ruta"/></animateMotion>
               </g>
             </svg>
+            <svg class="map-svg map-svg-ed" viewBox="0 0 560 420" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false">
+              <defs>
+                <path id="ruta-ed" d="M150 44H470Q486 44 486 60V330Q486 346 470 346H150Q134 346 134 330V60Q134 44 150 44Z"/>
+                <pattern id="membrana" width="16" height="16" patternUnits="userSpaceOnUse"><path d="M16 0H0V16" fill="none" stroke="rgba(19,32,48,.07)" stroke-width="1"/></pattern>
+                <g id="carro">
+                  <rect width="26" height="16" rx="4" fill="currentColor"/>
+                  <rect x="16" y="2.5" width="6" height="11" rx="2" fill="rgba(255,255,255,.6)"/>
+                  <rect x="3" y="3" width="4" height="10" rx="1.5" fill="rgba(255,255,255,.35)"/>
+                </g>
+                <g id="arbol-ed">
+                  <circle cx="2" cy="3" r="9" fill="rgba(19,32,48,.10)"/>
+                  <circle r="9" fill="#a9d39a"/>
+                  <circle cx="-2.5" cy="-2.5" r="4" fill="#c6e5b9"/>
+                </g>
+              </defs>
+
+              <rect x="6" y="6" width="548" height="408" rx="26" fill="#e4ede0"/>
+              <rect x="6" y="360" width="548" height="12" fill="#eef1f5"/>
+              <path d="M6 372H554V388Q554 414 528 414H32Q6 414 6 388Z" fill="#d5dce4"/>
+              <path d="M24 393H536" stroke="#fff" stroke-width="2" stroke-dasharray="14 12"/>
+
+              <rect x="22" y="40" width="98" height="300" rx="10" fill="#dde3ea"/>
+              <path d="M24 70H58M24 100H58M24 130H58M24 160H58M24 190H58M24 220H58M24 250H58M24 280H58M24 310H58M84 70H118M84 100H118M84 130H118M84 160H118M84 190H118M84 220H118M84 250H118M84 280H118M84 310H118" stroke="#fff" stroke-width="1.6"/>
+              <use href="#carro" xlink:href="#carro" x="28" y="77" style="color:#9fb3c8"/>
+              <use href="#carro" xlink:href="#carro" x="28" y="137" style="color:#f1c9b0"/>
+              <use href="#carro" xlink:href="#carro" x="28" y="257" style="color:#c9d3df"/>
+              <use href="#carro" xlink:href="#carro" x="88" y="107" style="color:#e8b9a0"/>
+              <use href="#carro" xlink:href="#carro" x="88" y="197" style="color:#9fb3c8"/>
+              <use href="#carro" xlink:href="#carro" x="88" y="287" style="color:#d9c3e6"/>
+              <rect x="58" y="338" width="26" height="34" fill="#dde3ea"/>
+              <rect x="92" y="344" width="22" height="16" rx="3" fill="#fff" stroke="#b7c3cf" stroke-width="1.5"/>
+              <path d="M58 352H84" stroke="#ff6a2b" stroke-width="3" stroke-linecap="round"/>
+
+              <use href="#arbol-ed" xlink:href="#arbol-ed" x="172" y="349"/>
+              <use href="#arbol-ed" xlink:href="#arbol-ed" x="218" y="349"/>
+              <use href="#arbol-ed" xlink:href="#arbol-ed" x="264" y="349"/>
+              <use href="#arbol-ed" xlink:href="#arbol-ed" x="310" y="349"/>
+              <use href="#arbol-ed" xlink:href="#arbol-ed" x="356" y="349"/>
+              <use href="#arbol-ed" xlink:href="#arbol-ed" x="402" y="349"/>
+              <use href="#arbol-ed" xlink:href="#arbol-ed" x="448" y="349"/>
+              <use href="#arbol-ed" xlink:href="#arbol-ed" x="518" y="78"/>
+              <use href="#arbol-ed" xlink:href="#arbol-ed" x="512" y="136"/>
+              <use href="#arbol-ed" xlink:href="#arbol-ed" x="520" y="196"/>
+              <use href="#arbol-ed" xlink:href="#arbol-ed" x="512" y="256"/>
+              <use href="#arbol-ed" xlink:href="#arbol-ed" x="520" y="314"/>
+
+              <rect x="157" y="67" width="320" height="270" rx="6" fill="rgba(19,32,48,.16)"/>
+              <rect x="150" y="60" width="320" height="270" rx="6" fill="#e9edf2"/>
+              <rect x="150" y="60" width="320" height="270" rx="6" fill="url(#membrana)"/>
+              <rect x="152.5" y="62.5" width="315" height="265" rx="5" fill="none" stroke="#c3ccd6" stroke-width="5"/>
+
+              <g stroke="#aab7c5" stroke-width="2">
+                <circle cx="196" cy="106" r="17" fill="#cdd8e3"/>
+                <circle cx="240" cy="106" r="17" fill="#cdd8e3"/>
+              </g>
+              <circle cx="196" cy="106" r="6" fill="#b7c4d2"/>
+              <circle cx="240" cy="106" r="6" fill="#b7c4d2"/>
+
+              <rect x="280" y="154" width="74" height="56" rx="4" fill="rgba(19,32,48,.12)"/>
+              <rect x="276" y="150" width="74" height="56" rx="4" fill="#f6f8fa" stroke="#c3ccd6" stroke-width="1.5"/>
+              <path d="M276 150L313 178L276 206M350 150L313 178L350 206" fill="none" stroke="rgba(19,32,48,.12)" stroke-width="1.1"/>
+
+              <g fill="#36557f">
+                <rect x="372" y="84" width="24" height="20" rx="2"/><rect x="400" y="84" width="24" height="20" rx="2"/><rect x="428" y="84" width="24" height="20" rx="2"/>
+                <rect x="372" y="108" width="24" height="20" rx="2"/><rect x="400" y="108" width="24" height="20" rx="2"/><rect x="428" y="108" width="24" height="20" rx="2"/>
+                <rect x="372" y="132" width="24" height="20" rx="2"/><rect x="400" y="132" width="24" height="20" rx="2"/><rect x="428" y="132" width="24" height="20" rx="2"/>
+                <rect x="372" y="156" width="24" height="20" rx="2"/><rect x="400" y="156" width="24" height="20" rx="2"/><rect x="428" y="156" width="24" height="20" rx="2"/>
+              </g>
+              <path d="M372 94H452M372 118H452M372 142H452M372 166H452" stroke="rgba(255,255,255,.22)" stroke-width="1"/>
+
+              <g fill="#dfe5ec" stroke="#b7c3cf" stroke-width="1.2">
+                <rect x="384" y="236" width="24" height="24" rx="3"/>
+                <rect x="416" y="236" width="24" height="24" rx="3"/>
+              </g>
+              <g fill="none" stroke="#9aa9b9" stroke-width="1.4">
+                <circle cx="396" cy="248" r="7"/><circle cx="428" cy="248" r="7"/>
+              </g>
+              <g fill="#8fa0b2">
+                <circle cx="164" cy="74" r="3"/><circle cx="456" cy="74" r="3"/><circle cx="164" cy="316" r="3"/><circle cx="456" cy="316" r="3"/>
+              </g>
+
+              <ellipse cx="232" cy="288" rx="36" ry="18" fill="rgba(110,160,210,.30)"/>
+              <ellipse cx="226" cy="286" rx="20" ry="9" fill="rgba(90,140,195,.30)"/>
+
+              <use href="#ruta-ed" xlink:href="#ruta-ed" class="m-route"/>
+
+              <g transform="translate(232 288)">
+                <circle r="26" fill="none" stroke="#ff6a2b" stroke-width="2">
+                  <animate attributeName="r" values="26;42" dur="2s" repeatCount="indefinite"/>
+                  <animate attributeName="opacity" values=".9;0" dur="2s" repeatCount="indefinite"/>
+                </circle>
+                <path d="M-44 -14V-26H-32M32 -26H44V-14M44 14V26H32M-32 26H-44V14" fill="none" stroke="#ff6a2b" stroke-width="2.5" stroke-linecap="round"/>
+              </g>
+
+              <g>
+                <circle r="22" fill="rgba(255,106,43,.16)">
+                  <animate attributeName="r" values="18;27;18" dur="2.4s" repeatCount="indefinite"/>
+                </circle>
+                <path d="M-10 -10L10 10M10 -10L-10 10" stroke="#1d2a38" stroke-width="2.6" stroke-linecap="round"/>
+                <g fill="rgba(29,42,56,.22)" stroke="#1d2a38" stroke-width="1">
+                  <circle cx="-10" cy="-10" r="6"/><circle cx="10" cy="-10" r="6"/>
+                  <circle cx="-10" cy="10" r="6"/><circle cx="10" cy="10" r="6"/>
+                </g>
+                <rect x="-7" y="-5" width="14" height="10" rx="3.5" fill="#1d2a38"/>
+                <circle cx="5" cy="0" r="1.8" fill="#ff6a2b"/>
+                <animateMotion dur="20s" repeatCount="indefinite" rotate="auto"><mpath href="#ruta-ed" xlink:href="#ruta-ed"/></animateMotion>
+              </g>
+            </svg>
             <span class="hud hud-name" data-condo-map>Su condominio</span>
-            <span class="hud hud-alert">Canal obstruido · Casa 4</span>
-            <span class="hud hud-bl"><i class="rec" aria-hidden="true"></i>Ronda perimetral · 06:40</span>
+            <span class="hud hud-alert" data-ed="Agua estancada · Azotea">Canal obstruido · Casa 4</span>
+            <span class="hud hud-bl"><i class="rec" aria-hidden="true"></i><span data-ed="Inspección de fachada · 06:40">Ronda perimetral · 06:40</span></span>
             <span class="hud hud-br">Batería 82 % · 31 min</span>
           </figure>
           <img class="hero-drone" src="assets/img/air3s.webp" alt="Dron DJI Air 3S" width="526" height="231">
@@ -170,11 +279,11 @@
       <div class="wrap">
         <ul class="stats glass" data-reveal>
           <li><b>45 min</b><span>de vuelo por batería</span></li>
-          <li><b>3x</b><span>zoom óptico para revisar techos</span></li>
+          <li><b>3x</b><span data-ed="zoom óptico para revisar azotea y fachada">zoom óptico para revisar techos</span></li>
           <li><b>2 años</b><span>de Protection Plus</span></li>
-          <li><b data-stat-mes>Q29.49</b><span>por casa al mes*</span></li>
+          <li><b data-stat-mes>Q29.49</b><span data-ed="por apartamento al mes*">por casa al mes*</span></li>
         </ul>
-        <p class="stats-note">* Paquete Seguridad entre <span data-stat-casas>60</span> casas, cobrado en 12 meses. Haga el cálculo con sus números <a href="#calculadora">más abajo</a>.</p>
+        <p class="stats-note">* <span data-nota-pre>Paquete Seguridad entre</span> <span data-stat-casas>60</span> <span data-ed="apartamentos">casas</span>, cobrado en 12 meses. Haga el cálculo con sus números <a href="#calculadora">más abajo</a>.</p>
       </div>
     </section>
 
@@ -184,32 +293,38 @@
         <div class="sec-head" data-reveal>
           <p class="eyebrow">01 · Lo que resuelve</p>
           <h2>Lo que hoy se hace con escalera<span class="coma">,</span> andamio <em>o a pie.</em></h2>
-          <p class="lead">Tres tareas que el condominio ya paga cada año, en horas del personal o en contratistas, y que con un dron se hacen más rápido y quedan grabadas en video.</p>
+          <p class="lead" data-ed="Tres tareas que el edificio ya paga cada año, en horas del personal o en contratistas, y que con un dron se hacen más rápido y quedan grabadas en video.">Tres tareas que el condominio ya paga cada año, en horas del personal o en contratistas, y que con un dron se hacen más rápido y quedan grabadas en video.</p>
         </div>
 
         <div class="cards">
           <article class="card glass" data-reveal style="--d:.05s">
             <span class="card-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11.5 12 4l9 7.5"/><path d="M5 10v10h14V10"/><path d="M9.5 20v-5h5v5"/></svg></span>
             <p class="card-tag">Mantenimiento</p>
-            <h3>Techos y canales, sin subir a nadie.</h3>
-            <p>El zoom de 3x permite revisar canales, bajadas de agua, tanques, fachadas y paneles solares desde una distancia segura. El video queda listo para mandárselo al contratista antes de que cotice.</p>
+            <h3 data-ed="Azotea y fachada, sin colgar a nadie.">Techos y canales, sin subir a nadie.</h3>
+            <p data-ed="El zoom de 3x permite revisar la impermeabilización de la azotea, los tanques, las bajadas de agua, la ventanería y la fachada de todos los niveles desde una distancia segura. El video queda listo para mandárselo al contratista antes de que cotice.">El zoom de 3x permite revisar canales, bajadas de agua, tanques, fachadas y paneles solares desde una distancia segura. El video queda listo para mandárselo al contratista antes de que cotice.</p>
             <ul class="chips"><li>Zoom óptico 3x</li><li>Video 4K para el contratista</li></ul>
           </article>
           <article class="card glass" data-reveal style="--d:.12s">
             <span class="card-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4.5 6v6c0 4.4 3.2 8.1 7.5 9 4.3-.9 7.5-4.6 7.5-9V6L12 3Z"/><path d="m9 12 2.2 2.2L15.5 10"/></svg></span>
             <p class="card-tag">Seguridad</p>
             <h3>El perímetro completo en minutos.</h3>
-            <p>Si suena una alarma o un vecino reporta algo en el muro, el guardia revisa la zona desde el aire antes de caminarla. Con la cámara de ronda, cada recorrido a pie también queda grabado.</p>
+            <p data-ed="Si suena una alarma o alguien reporta algo en el parqueo o en el muro, el guardia revisa la zona desde el aire antes de caminarla. Con la cámara de ronda, cada recorrido a pie también queda grabado.">Si suena una alarma o un vecino reporta algo en el muro, el guardia revisa la zona desde el aire antes de caminarla. Con la cámara de ronda, cada recorrido a pie también queda grabado.</p>
             <ul class="chips"><li>Rondas grabadas</li><li>Regreso automático al despegue</li></ul>
           </article>
           <article class="card glass" data-reveal style="--d:.19s">
             <span class="card-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6.5" width="18" height="13.5" rx="3"/><circle cx="12" cy="13.2" r="3.4"/><path d="M8.5 6.5 10 4h4l1.5 2.5"/></svg></span>
             <p class="card-tag">Imagen y comunidad</p>
-            <h3>Un condominio que se ve como es.</h3>
-            <p>Fotos aéreas para la asamblea y para informar sobre obras, recorridos 360° de las casas en venta o alquiler y video de los eventos de la comunidad.</p>
+            <h3 data-ed="Un edificio que se ve como es.">Un condominio que se ve como es.</h3>
+            <p data-ed="Fotos aéreas para la asamblea de propietarios, recorridos 360° de los apartamentos en venta o alquiler y video de las áreas comunes.">Fotos aéreas para la asamblea y para informar sobre obras, recorridos 360° de las casas en venta o alquiler y video de los eventos de la comunidad.</p>
             <ul class="chips"><li>Fotos de 50 MP</li><li>Recorridos 360°</li></ul>
           </article>
         </div>
+
+        <aside class="callout glass" data-solo-admin hidden>
+          <p class="eyebrow">Para <span data-admin></span></p>
+          <h3>Un solo equipo, más de una propiedad.</h3>
+          <p>Si administran otros edificios o condominios, el mismo dron y el mismo personal capacitado sirven para todos: inspecciones, rondas y fotos para cada asamblea. Y si también venden o alquilan unidades, las fotos aéreas y los recorridos 360° ayudan a mostrarlas.</p>
+        </aside>
       </div>
     </section>
 
@@ -226,19 +341,19 @@
             <span class="step-n">1</span>
             <p class="step-when">Día de la entrega</p>
             <h3>Capacitación</h3>
-            <p>Configuramos el equipo con ustedes y enseñamos a volar a las personas que la junta designe.</p>
+            <p>Configuramos el equipo con ustedes y enseñamos a volar a las personas que <span data-adm="la administración">la junta</span> designe.</p>
           </li>
           <li class="step glass" data-reveal style="--d:.1s">
             <span class="step-n">2</span>
             <p class="step-when">Cada semana</p>
             <h3>Ronda aérea</h3>
-            <p>Muros, portones y áreas verdes en pocos minutos de vuelo, siempre por la misma ruta.</p>
+            <p data-ed="Parqueo, muros, portones y fachada en pocos minutos de vuelo, siempre por la misma ruta.">Muros, portones y áreas verdes en pocos minutos de vuelo, siempre por la misma ruta.</p>
           </li>
           <li class="step glass" data-reveal style="--d:.16s">
             <span class="step-n">3</span>
             <p class="step-when">Antes del invierno</p>
-            <h3>Revisión de techos</h3>
-            <p>Canales, bajadas y techos de las áreas comunes, con video para planificar el mantenimiento antes de las lluvias.</p>
+            <h3 data-ed="Revisión de azotea y fachada">Revisión de techos</h3>
+            <p data-ed="Impermeabilización, tanques, bajadas y ventanería, con video para planificar el mantenimiento antes de las lluvias.">Canales, bajadas y techos de las áreas comunes, con video para planificar el mantenimiento antes de las lluvias.</p>
           </li>
           <li class="step glass" data-reveal style="--d:.22s">
             <span class="step-n">4</span>
@@ -269,8 +384,8 @@
             <p class="pkg-price">Q16,098</p>
             <p class="pkg-casa"><span data-por-casa="esencial">Q22.36 por casa al mes</span><small data-casa-note>60 casas · 12 meses</small></p>
             <ul class="pkg-uses">
-              <li>Revisión de techos, canales y tanques</li>
-              <li>Fotos y video aéreo del condominio</li>
+              <li data-ed="Revisión de azotea, tanques y fachada">Revisión de techos, canales y tanques</li>
+              <li data-ed="Fotos y video aéreo del edificio">Fotos y video aéreo del condominio</li>
               <li>Revisión aérea del perímetro</li>
             </ul>
             <dl class="pkg-items">
@@ -317,7 +432,7 @@
             <p class="pkg-casa"><span data-por-casa="completo">Q38.44 por casa al mes</span><small data-casa-note>60 casas · 12 meses</small></p>
             <ul class="pkg-uses">
               <li>Todo lo del paquete Seguridad</li>
-              <li>Recorridos 360° de casas en venta o alquiler</li>
+              <li data-ed="Recorridos 360° de apartamentos en venta o alquiler">Recorridos 360° de casas en venta o alquiler</li>
               <li>Video de eventos y de las áreas comunes</li>
             </ul>
             <dl class="pkg-items">
@@ -337,7 +452,7 @@
             <div>
               <p class="alt-k">Presupuesto ajustado</p>
               <h4>DJI Lito X1 · Fly More Combo con Protection Plus</h4>
-              <p>Pesa menos de 249 g y es muy fácil de volar. No tiene zoom, así que para revisar techos hay que acercarse más.</p>
+              <p data-ed="Pesa menos de 249 g y es muy fácil de volar. No tiene zoom, así que para revisar la fachada hay que acercarse más.">Pesa menos de 249 g y es muy fácil de volar. No tiene zoom, así que para revisar techos hay que acercarse más.</p>
             </div>
             <p class="alt-price">Q6,998</p>
           </article>
@@ -358,16 +473,16 @@
     <section class="sec" id="calculadora">
       <div class="wrap calc-grid">
         <div class="sec-head" data-reveal>
-          <p class="eyebrow">04 · Costo por casa</p>
-          <h2>¿Cuánto le toca <em>a cada casa</em>?</h2>
-          <p class="lead">Ponga el número de casas y el plazo en que la junta lo cobraría junto con la cuota de mantenimiento.</p>
+          <p class="eyebrow" data-ed="04 · Costo por apartamento">04 · Costo por casa</p>
+          <h2>¿Cuánto le toca <em data-ed="a cada apartamento">a cada casa</em>?</h2>
+          <p class="lead">Ponga el número de <span data-ed="apartamentos">casas</span> y el plazo en que se cobraría junto con la cuota de mantenimiento.</p>
         </div>
 
         <form class="calc glass" data-calc data-reveal style="--d:.08s" onsubmit="return false">
           <div class="field">
-            <label for="calc-casas">Número de casas</label>
+            <label for="calc-casas" data-ed="Número de apartamentos">Número de casas</label>
             <div class="range-row">
-              <input type="range" min="10" max="300" step="1" value="60" data-casas-range aria-label="Número de casas (deslizador)">
+              <input type="range" min="10" max="300" step="1" value="60" data-casas-range aria-label="Cantidad (deslizador)">
               <input type="number" id="calc-casas" min="1" max="2000" value="60" inputmode="numeric" data-casas>
             </div>
           </div>
@@ -391,7 +506,7 @@
           <output class="calc-out" aria-live="polite">
             <span class="calc-big" data-out-mes>Q29.49</span>
             <span class="calc-cap" data-out-cap>por casa al mes, durante 12 meses</span>
-            <span class="calc-meta">Total del paquete: <b data-out-total>Q21,236</b> · Por casa en un solo cobro: <b data-out-unico>Q353.93</b></span>
+            <span class="calc-meta">Total del paquete: <b data-out-total>Q21,236</b> · <span data-out-unico-lbl>Por casa en un solo cobro</span>: <b data-out-unico>Q353.93</b></span>
           </output>
         </form>
       </div>
@@ -433,15 +548,15 @@
         <div class="sec-head" data-reveal>
           <p class="eyebrow">06 · Reglamento sugerido</p>
           <h2>Reglas claras <em>para los vecinos.</em></h2>
-          <p class="lead">La privacidad es lo primero que se pregunta en una asamblea. Este reglamento modelo va incluido para que la junta lo apruebe o lo ajuste.</p>
+          <p class="lead">La privacidad es lo primero que se pregunta en una asamblea. Este reglamento modelo va incluido para que <span data-adm="la administración">la junta</span> lo apruebe o lo ajuste.</p>
         </div>
         <ol class="rules">
-          <li class="rule glass" data-reveal style="--d:.03s"><span class="rule-n">1</span><p>Solo se vuela sobre áreas comunes, muros y techos comunes. Nunca sobre patios, jardines privados ni ventanas.</p></li>
-          <li class="rule glass" data-reveal style="--d:.07s"><span class="rule-n">2</span><p>Solo vuelan las personas capacitadas y autorizadas por la junta directiva.</p></li>
+          <li class="rule glass" data-reveal style="--d:.03s"><span class="rule-n">1</span><p data-ed="Solo se vuela sobre la azotea, el parqueo y las áreas comunes. Nunca se graba hacia ventanas ni balcones de los apartamentos.">Solo se vuela sobre áreas comunes, muros y techos comunes. Nunca sobre patios, jardines privados ni ventanas.</p></li>
+          <li class="rule glass" data-reveal style="--d:.07s"><span class="rule-n">2</span><p>Solo vuelan las personas capacitadas y autorizadas por <span data-adm="la administración">la junta directiva</span>.</p></li>
           <li class="rule glass" data-reveal style="--d:.11s"><span class="rule-n">3</span><p>Las rondas tienen horarios fijos, publicados para todos los vecinos.</p></li>
           <li class="rule glass" data-reveal style="--d:.15s"><span class="rule-n">4</span><p>Cada vuelo se anota en una bitácora: fecha, hora, piloto y motivo.</p></li>
           <li class="rule glass" data-reveal style="--d:.19s"><span class="rule-n">5</span><p>Los videos son solo para la administración y se borran a los 30 días, salvo que haya un incidente.</p></li>
-          <li class="rule glass" data-reveal style="--d:.23s"><span class="rule-n">6</span><p>Para revisar el techo de una casa, primero se pide permiso al propietario.</p></li>
+          <li class="rule glass" data-reveal style="--d:.23s"><span class="rule-n">6</span><p data-ed="Antes de inspeccionar la fachada, se avisa a los residentes de esos niveles.">Para revisar el techo de una casa, primero se pide permiso al propietario.</p></li>
         </ol>
       </div>
     </section>
@@ -451,24 +566,24 @@
       <div class="wrap">
         <div class="sec-head sec-head-c" data-reveal>
           <p class="eyebrow">07 · Preguntas</p>
-          <h2>Lo que suele preguntar <em>la junta.</em></h2>
+          <h2>Lo que suele preguntar <em data-adm="la administración.">la junta.</em></h2>
         </div>
         <div class="faq" data-reveal>
           <details name="faq" open>
             <summary>¿Quién va a volar el dron?</summary>
-            <div class="faq-a"><p>La persona que la junta designe: un guardia de turno, el encargado de mantenimiento o alguien de la administración. El día de la entrega le enseñamos lo básico. Los drones DJI despegan y aterrizan con un botón, detectan obstáculos y regresan solos al punto de despegue si pierden señal o les queda poca batería.</p></div>
+            <div class="faq-a"><p>La persona que <span data-adm="la administración">la junta</span> designe: un guardia de turno, el encargado de mantenimiento o alguien de la administración. El día de la entrega le enseñamos lo básico. Los drones DJI despegan y aterrizan con un botón, detectan obstáculos y regresan solos al punto de despegue si pierden señal o les queda poca batería.</p></div>
           </details>
           <details name="faq">
-            <summary>¿Es legal volar un dron dentro del condominio?</summary>
-            <div class="faq-a"><p>En Guatemala el uso de drones lo regula la Dirección General de Aeronáutica Civil (DGAC). Antes de la entrega le orientamos sobre los requisitos vigentes de registro y uso, para que el condominio vuele en regla desde el primer día.</p></div>
+            <summary data-ed="¿Es legal volar un dron en el edificio?">¿Es legal volar un dron dentro del condominio?</summary>
+            <div class="faq-a"><p>En Guatemala el uso de drones lo regula la Dirección General de Aeronáutica Civil (DGAC). Antes de la entrega le orientamos sobre los requisitos vigentes de registro y uso, para que <span data-ed="el edificio">el condominio</span> vuele en regla desde el primer día.</p></div>
           </details>
           <details name="faq">
             <summary>¿Y la privacidad de los vecinos?</summary>
-            <div class="faq-a"><p>Se vuela solo sobre áreas comunes, muros y techos comunes, en horarios publicados y con bitácora. El <a href="#reglamento">reglamento sugerido</a> de esta propuesta lo deja por escrito para que la asamblea lo apruebe.</p></div>
+            <div class="faq-a"><p><span data-ed="Se vuela solo sobre la azotea, el parqueo y las áreas comunes, en horarios publicados y con bitácora, y nunca se graba hacia ventanas ni balcones.">Se vuela solo sobre áreas comunes, muros y techos comunes, en horarios publicados y con bitácora.</span> El <a href="#reglamento">reglamento sugerido</a> de esta propuesta lo deja por escrito para que la asamblea lo apruebe.</p></div>
           </details>
           <details name="faq">
             <summary>¿Sirve de noche?</summary>
-            <div class="faq-a"><p>El Air 3S detecta obstáculos incluso de noche y graba bien con poca luz, pero no tiene cámara térmica. Rinde mejor de día y al atardecer. Para vigilancia nocturna completa, se complementa con las cámaras fijas que el condominio ya tenga.</p></div>
+            <div class="faq-a"><p>El Air 3S detecta obstáculos incluso de noche y graba bien con poca luz, pero no tiene cámara térmica. Rinde mejor de día y al atardecer. Para vigilancia nocturna completa, se complementa con las cámaras fijas que <span data-ed="el edificio">el condominio</span> ya tenga.</p></div>
           </details>
           <details name="faq">
             <summary>¿Qué pasa si se cae, se golpea o se moja?</summary>
@@ -476,15 +591,15 @@
           </details>
           <details name="faq">
             <summary>¿Cuánto dura la batería?</summary>
-            <div class="faq-a"><p>El Air 3S vuela hasta 45 minutos por batería y el combo trae tres, con su hub de carga. Alcanza para varias rondas y una revisión de techos el mismo día. La Action 6 graba hasta 4 horas por batería y también trae tres.</p></div>
+            <div class="faq-a"><p>El Air 3S vuela hasta 45 minutos por batería y el combo trae tres, con su hub de carga. Alcanza para varias rondas y una revisión <span data-ed="de azotea y fachada">de techos</span> el mismo día. La Action 6 graba hasta 4 horas por batería y también trae tres.</p></div>
           </details>
           <details name="faq">
             <summary>¿Cómo se paga?</summary>
-            <div class="faq-a"><p>Los precios son de contado, con IVA incluido, y se factura a nombre del condominio. Consulte con su asesor las formas de pago disponibles.</p></div>
+            <div class="faq-a"><p>Los precios son de contado, con IVA incluido, y se factura a nombre <span data-ed="del edificio" data-adm="de la administradora o del edificio">del condominio</span>. Consulte con su asesor las formas de pago disponibles.</p></div>
           </details>
           <details name="faq">
             <summary>¿Pueden hacer una demostración?</summary>
-            <div class="faq-a"><p>Sí. Para juntas directivas interesadas coordinamos una demostración de vuelo en el condominio. Los detalles están <a href="#contacto">aquí abajo</a>.</p></div>
+            <div class="faq-a"><p>Sí. Coordinamos una demostración de vuelo en <span data-ed="el edificio">el condominio</span> con quienes toman la decisión. Los detalles están <a href="#contacto">aquí abajo</a>.</p></div>
           </details>
         </div>
       </div>
@@ -495,9 +610,9 @@
       <div class="wrap">
         <div class="cta-panel glass" data-reveal>
           <div>
-            <p class="eyebrow">Demostración para juntas directivas</p>
+            <p class="eyebrow" data-adm="Demostración para la administración">Demostración para juntas directivas</p>
             <h2>Véalo volar sobre <span data-condo>su condominio</span>.</h2>
-            <p class="lead">Coordinamos una demostración de unos 20 minutos en sus áreas comunes, con la junta presente. Al terminar, se quedan con la foto aérea del condominio.</p>
+            <p class="lead">Coordinamos una demostración de unos 20 minutos en sus áreas comunes, con <span data-adm="la administración">la junta</span> presente. Al terminar, se quedan con la foto aérea <span data-ed="del edificio">del condominio</span>.</p>
             <ul class="chips chips-lg"><li>20 minutos</li><li>En sus áreas comunes</li><li>Foto aérea de regalo</li></ul>
             <div class="hero-ctas">
               <a class="btn btn-dark" href="#contacto" data-wa data-magnet>
@@ -522,7 +637,7 @@
   <footer class="foot">
     <div class="wrap foot-inner">
       <img src="assets/img/dji-logo.webp" alt="DJI" width="271" height="151">
-      <p>Propuesta preparada para <span data-condo>su condominio</span> · octubre de 2026</p>
+      <p>Propuesta preparada para <span data-condo>su condominio</span><span data-solo-admin hidden> · <span data-admin></span></span> · octubre de 2026</p>
       <p class="foot-small">Precios en quetzales con IVA incluido, vigentes a la fecha de esta propuesta y sujetos a disponibilidad. Imágenes de producto: DJI.</p>
     </div>
   </footer>
@@ -530,9 +645,17 @@
   <dialog class="armar" data-armar aria-labelledby="armar-t">
     <form method="dialog">
       <h2 id="armar-t">Armar link para un condominio</h2>
-      <p>Solo para uso interno. El link abre esta propuesta con el nombre del condominio y su número de casas.</p>
-      <label>Nombre del condominio<input type="text" data-armar-c placeholder="Ej.: Condominio Los Pinos" autocomplete="off"></label>
-      <label>Número de casas<input type="number" min="1" max="2000" data-armar-casas placeholder="Ej.: 80" inputmode="numeric"></label>
+      <p>Solo para uso interno. El link abre esta propuesta con el nombre del condominio o edificio, su administradora y su número de unidades.</p>
+      <label>Nombre del condominio o edificio<input type="text" data-armar-c placeholder="Ej.: Edificio Boulevard 5" autocomplete="off"></label>
+      <label>Administradora (opcional)<input type="text" data-armar-a placeholder="Ej.: Puerta Abierta Inmobiliaria" autocomplete="off"></label>
+      <label>Tipo
+        <select data-armar-t>
+          <option value="">Detectar por el nombre</option>
+          <option value="condominio">Condominio de casas</option>
+          <option value="edificio">Edificio de apartamentos</option>
+        </select>
+      </label>
+      <label>Número de casas o apartamentos (opcional)<input type="number" min="1" max="2000" data-armar-casas placeholder="Ej.: 80" inputmode="numeric"></label>
       <label>Paquete a destacar
         <select data-armar-p>
           <option value="">Seguridad (recomendado)</option>

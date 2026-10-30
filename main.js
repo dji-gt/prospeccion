@@ -10,7 +10,7 @@
     completo: { nombre: "Completo", total: 27674 }
   };
   var params = new URLSearchParams(location.search);
-  var estado = { condo: "", casas: B.casasDefault || 60, paquete: "seguridad", meses: B.mesesDefault || 12 };
+  var estado = { condo: "", admin: "", casas: B.casasDefault || 60, paquete: "seguridad", meses: B.mesesDefault || 12, unidad: ["casa", "casas"] };
 
   // Formato de Guatemala sin espacio: Q22.12 · Q21,236
   var n2 = new Intl.NumberFormat("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
@@ -27,7 +27,11 @@
     return String(s || "").replace(/[_+]+/g, " ").replace(/\s+-\s+|-/g, " ").replace(/\s+/g, " ").trim().slice(0, 60);
   }
 
-  /* ---------- Personalización por link: ?c=Los-Pinos&casas=80&p=completo ---------- */
+  /* ---------- Personalización por link ----------
+     ?c=Edificio-Boulevard-5   nombre del condominio o edificio
+     &a=Puerta-Abierta         administradora (opcional)
+     &t=edificio               fuerza el modo edificio (se detecta solo si el nombre empieza con "Edificio" o "Torre")
+     &casas=80&p=completo      unidades y paquete a destacar */
   function personalizar() {
     var casas = parseInt(params.get("casas"), 10);
     var p = (params.get("p") || "").toLowerCase();
@@ -39,12 +43,34 @@
     }
 
     var c = limpiarNombre(params.get("c"));
+    var adm = limpiarNombre(params.get("a"));
+    var t = (params.get("t") || "").toLowerCase();
+    var edificio = t === "edificio" || (t !== "condominio" && /^(edificio|torre|torres|apartamentos)\b/i.test(c));
+
+    if (edificio) {
+      estado.unidad = ["apartamento", "apartamentos"];
+      document.documentElement.classList.add("modo-edificio");
+      $$("[data-ed]").forEach(function (el) { el.textContent = el.getAttribute("data-ed"); });
+      var mapa = $("[data-map]");
+      if (mapa) mapa.setAttribute("aria-label", "Ilustración: vista aérea de un edificio con la ruta del dron alrededor de la fachada y una zona de la azotea marcada para revisión");
+    }
+    if (adm) {
+      estado.admin = adm;
+      $$("[data-adm]").forEach(function (el) { el.textContent = el.getAttribute("data-adm"); });
+      setText("[data-admin]", adm);
+      $$("[data-solo-admin]").forEach(function (el) { el.hidden = false; });
+    }
+
     if (!c) return;
     estado.condo = c;
     setText("[data-condo]", c);
-    setText("[data-condo-h1]", c);
+    // Que "Boulevard 5" no se parta en dos renglones
+    setText("[data-condo-h1]", c.replace(/ (\S{1,3})$/, " $1"));
+    var h1 = $(".hero-title");
+    if (h1 && c.length > 14) h1.classList.add("is-largo");
     setText("[data-h1-em]", "desde el aire."); // "visto" no concuerda con nombres como "Los Pinos"
     setText("[data-condo-map]", c);
+    if (!(casas > 0)) setText("[data-nota-pre]", "Ejemplo: paquete Seguridad entre");
     document.title = "Propuesta DJI · " + c;
   }
 
@@ -63,15 +89,17 @@
       big.textContent = q2.format(unCobro ? r.unico : r.mes);
       if (animar) { big.classList.remove("bump"); void big.offsetWidth; big.classList.add("bump"); }
     }
-    setText("[data-out-cap]", unCobro ? "por casa, en un solo cobro" : "por casa al mes, durante " + estado.meses + " meses");
+    var u = estado.unidad;
+    setText("[data-out-cap]", unCobro ? "por " + u[0] + ", en un solo cobro" : "por " + u[0] + " al mes, durante " + estado.meses + " meses");
     setText("[data-out-total]", q0.format(r.total));
     setText("[data-out-unico]", q2.format(r.unico));
+    setText("[data-out-unico-lbl]", "Por " + u[0] + " en un solo cobro");
 
     $$("[data-por-casa]").forEach(function (el) {
       var v = porCasa(el.getAttribute("data-por-casa"));
-      el.textContent = q2.format(unCobro ? v.unico : v.mes) + (unCobro ? " por casa, un solo cobro" : " por casa al mes");
+      el.textContent = q2.format(unCobro ? v.unico : v.mes) + (unCobro ? " por " + u[0] + ", un solo cobro" : " por " + u[0] + " al mes");
     });
-    setText("[data-casa-note]", estado.casas + " casas" + (unCobro ? "" : " · " + estado.meses + " meses"));
+    setText("[data-casa-note]", estado.casas + " " + u[1] + (unCobro ? "" : " · " + estado.meses + " meses"));
 
     var seg = PAQ.seguridad.total / estado.casas / 12;
     setText("[data-stat-mes]", q2.format(seg));
@@ -119,15 +147,18 @@
   }
 
   function mensajeWhatsApp(paquete) {
-    var quien = "de un condominio";
+    var lugar = "";
     if (estado.condo) {
-      quien = /^(condominio|residencial|residenciales|condado|colonia|edificio|torre)\b/i.test(estado.condo)
-        ? "de " + estado.condo
-        : "del condominio " + estado.condo;
+      lugar = /^(condominio|residencial|residenciales|condado|colonia|edificio|torre|torres|apartamentos)\b/i.test(estado.condo)
+        ? estado.condo
+        : (estado.unidad[0] === "apartamento" ? "el edificio " : "el condominio ") + estado.condo;
     }
-    var m = "Hola, le escribo " + quien + ". Vimos la propuesta DJI para condominios";
+    var quien;
+    if (estado.admin) quien = "de " + estado.admin + (lugar ? ", por " + lugar : "");
+    else quien = lugar ? (/^el /.test(lugar) ? "d" + lugar : "de " + lugar) : "de un condominio";
+    var m = "Hola, le escribo " + quien + ". Vimos la propuesta DJI";
     if (paquete) m += " y nos interesa el paquete " + paquete;
-    return m + ". ¿Podemos agendar una presentación para la junta directiva?";
+    return m + ". ¿Podemos agendar una presentación" + (estado.admin ? "?" : " para la junta directiva?");
   }
 
   function initWhatsApp() {
@@ -244,6 +275,8 @@
     var dlg = $("[data-armar]");
     if (!dlg || typeof dlg.showModal !== "function") return;
     var inC = $("[data-armar-c]", dlg);
+    var inA = $("[data-armar-a]", dlg);
+    var inT = $("[data-armar-t]", dlg);
     var inCasas = $("[data-armar-casas]", dlg);
     var inP = $("[data-armar-p]", dlg);
     var out = $("[data-armar-out]", dlg);
@@ -255,6 +288,9 @@
       var p = new URLSearchParams();
       var c = inC.value.trim().replace(/\s+/g, "-");
       if (c) p.set("c", c);
+      var a = inA.value.trim().replace(/\s+/g, "-");
+      if (a) p.set("a", a);
+      if (inT.value) p.set("t", inT.value);
       var n = parseInt(inCasas.value, 10);
       if (n > 0) p.set("casas", String(n));
       if (inP.value) p.set("p", inP.value);
@@ -262,7 +298,7 @@
       out.value = base + (s ? "?" + s : "");
       abrir.href = out.value;
     }
-    [inC, inCasas, inP].forEach(function (el) { el.addEventListener("input", generar); });
+    [inC, inA, inT, inCasas, inP].forEach(function (el) { el.addEventListener("input", generar); });
     copiar.addEventListener("click", function () {
       generar();
       var hecho = function () { copiar.textContent = "¡Copiado!"; setTimeout(function () { copiar.textContent = "Copiar link"; }, 1600); };
@@ -276,6 +312,7 @@
     function revisar() {
       if (location.hash === "#armar" && !dlg.open) {
         if (estado.condo) inC.value = estado.condo;
+        if (estado.admin) inA.value = estado.admin;
         generar();
         dlg.showModal();
       }

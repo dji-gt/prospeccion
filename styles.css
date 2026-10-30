@@ -946,3 +946,24 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 
 /* La coma de Plus Jakarta Sans trae mucho aire a la izquierda en tamaños grandes */
 .coma { margin-left: -.09em; }
+
+/* ---------- Modo edificio y administradora (?c=Edificio...&a=...) ---------- */
+.map-svg-ed { display: none; }
+.modo-edificio .map-svg:not(.map-svg-ed) { display: none; }
+.modo-edificio .map-svg-ed { display: block; }
+.modo-edificio .hud-alert { top: 56%; left: 41.4%; }
+
+.kicker-adm { margin-top: 10px; padding-left: 14px; color: var(--ink-soft); font-size: 14px; }
+.kicker-adm strong { color: var(--ink); font-weight: 700; }
+.kicker-adm[hidden] { display: none; }
+.hero-title.is-largo { font-size: clamp(2.3rem, 4.4vw, 3.7rem); max-width: 15ch; }
+
+.callout {
+  margin-top: 22px;
+  padding: clamp(22px, 3vw, 32px) clamp(22px, 3.4vw, 36px);
+  border-radius: var(--r-lg);
+  background: linear-gradient(120deg, rgba(255, 106, 43, .10), rgba(255, 255, 255, .55) 55%);
+}
+.callout[hidden] { display: none; }
+.callout h3 { margin: 8px 0 8px; font-size: clamp(1.3rem, 2.2vw, 1.6rem); font-weight: 800; letter-spacing: -.02em; }
+.callout p:not(.eyebrow) { max-width: 78ch; color: var(--ink-soft); }
